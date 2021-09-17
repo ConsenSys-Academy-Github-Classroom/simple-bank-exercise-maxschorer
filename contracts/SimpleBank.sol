@@ -78,7 +78,7 @@ contract SimpleBank {
       require(balance >= withdrawAmount);
       // 2. Transfer Eth to the sender and decrement the withdrawal amount from
       //    sender's balance
-      payable(msg.sender).transfer(withdrawAmount);
+      msg.sender.transfer(withdrawAmount);
       // 3. Emit the appropriate event for this message
       uint newBalance = balance - withdrawAmount;
       balances[msg.sender] = newBalance;
